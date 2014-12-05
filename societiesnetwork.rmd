@@ -103,7 +103,32 @@ ggtitle("Annual Elected Members of APS by Residency") + ylab("Total Members Elec
 
 Another significant observation that scholars can make with with this line graph is that there is a significant decline of international members elected during times of international crises like during the War of 1812.
 
+These charts are very good at showing snaptshots about specific institutions or even some general characteristics shared between institutions however they do not demonstrate if members belonged to both groups
+
+
+
 ```{r}
+socdata %>%
+  filter(Year.Elected < 1812) %>%
+  graph.data.frame(directed = FALSE) %>%
+  plot(vertex.label = NA)
+title("APS and AAAS Shared Membership Before 1812")
+```
+
+Gathering data from the <i> Scholarly Socities Project </i> at the University of Waterloo Library http://www.scholarly-societies.org/
+Found that the data is difficult to easily scrape but there is much useful data that can be entered in a csv. Since this is being uploaded with this project it will be easy to collaborate with colleagues to add new socities as they are rediscovered. For example the Agricultural Society of Albemarle was not included in the origninal data of early scholarly socities founded before 1849 in the United States. References to the site and members is found in several sources like in the papers of its first president, and President of the United States, James Madison. 
+
+Once the data is gathered and loaded it became clear that it may be useful to assign geographic coordinates to the site. Google's api can be used to affix these codes however it requires city and state to be in the same column. Using dplyr we can add a column that pasted the data from the seperate City and State columns into a new column called location. Following that we can add this new column back to the original data frame and then run the Google api. Finally we can view the file and save it.
+
+
+```{r}
+schol_soc <- read.csv("~/societiesnetwork/data/scholarlysocieties.csv")     
+schol_soc<- schol_soc%>%
+mutate(location=paste (City, State))
+location_geocoded <- geocode(schol_soc$location)
+schol_soc_geocoded <- cbind(schol_soc, location_geocoded)
+schol_soc_geocoded
+write.csv(schol_soc_geocoded, file = "schol-soc-geocoded.csv")
 
 ```
 
