@@ -102,3 +102,8 @@ ggtitle("Annual Elected Members of APS by Residency") + ylab("Total Members Elec
 ```
 
 Another significant observation that scholars can make with with this line graph is that there is a significant decline of international members elected during times of international crises like during the War of 1812.
+
+```{r}
+
+```
+
