@@ -1,0 +1,35 @@
+---
+title: "societiesnetwork"
+author: "George Oberle"
+date: "December 5, 2014"
+output: html_document
+---
+
+<i>Introduction</i>
+
+The founders and the leaders in the early republic worried incessantly over the idea of decline in the republic and they recognized that the expansion of democracy and virtue relied on the enhancement of newly developing information networks in order to fashion a well-informed citizenry. The first half-century following the founding was a period when people, and the politicians that represented them, debated the importance of different revolutionary changes in the way people lived, interacted, and framed their understanding of the world. Historians have traditionally focused on these changes by focusing on the revolutionary changes in politics and in the marketplace. There is growing evidence however, that by studying the way people understood the impact of the new information systems that were being developed in the midst of the information revolution during this period we can better understand the ideological distinctions between different political actors. Therefore examining learned societies and other knowledge institutions could serve as a means to view connections and divisions between people. 
+Understanding the fundamental purpose of the learned society as a means of disseminating information with its membership helps to explain the expansive nature of discourse in early America. Because people gathered together to discuss new ideas in many diverse settings, the groups became vibrant and effective ways to spread knowledge. In other words, the early learned societies can be considered what modern day historians call "information systems." For example, Historian A. Hunter Dupree writes, “…the business of the learned society was in the late eighteenth century, and has remained, the gathering, processing, and dissemination of information.”  On some levels there was a transatlantic discourse occurring prior to the formation of these learned societies, but it was not until these formal systems were created that information systems could be formed, standardized, and diffused over vast and diverse spaces. 
+The emergence of early learned societies represented a revolution in knowledge, a new way of organizing and transmitting knowledge. This information revolution was analogous to the political and market revolutions of the eighteenth and nineteenth centuries. Daniel Headrick argues that this information revolution has been taken for granted and has not been explored nearly as extensively as the Enlightenment that preceded it. The expanding demand for information was fulfilled by an ever-expanding supply of information. The consumers for this new information included the traditional elite individual, government officials and military officers, as well as a growing number of professionals with a need for specialized information. They in turn created new information and fed into an expanding information cycle. Further, there was a dramatic growth of population, production, and trade. Lastly, Headrick points out that we should “…not forget curiosity. This period saw a substantial increase in the number of educated people,…who judged one another by their conversations, their wit, their knowledge of the world and the latest news.”   Information possessed a social and cultural power to those that had access to the right information. Headrick’s work shows that the development of a diverse range of information systems helped to lay a foundation for a diverse information environment.
+Learned societies have offered excellent sources for scholars to study the development of science and political culture. There is nothing new about studying them. Typically when scholars turn their attention to learned societies and other groups their focus naturally turns to the leadership of those associations and the work they conducted. This focus is natural since they offer the prevalence of evidence for scholars to evaluate. These sources do an excellent job describing the work of the institution and particular aspects of the interests of members. These works also suggest that scientific discourse, and the creation and dissemination of knowledge itself, is fixated in a tradition that is fundamentally a political endeavor and thus became politicized. This is exemplified by Linda Kerber’s comparison of the published papers of the American Academy of Arts and Sciences (AAAS) and the American Philosophical Society (APS) that asserted the AAAS stressed mathematical and astronomical studies while the APS focused on descriptive sciences of botany, geology and the like. Other scholars have suggested that scientific societies had much in common and that the differences between the two groups owed much more to the interests in their life and the accidents of death of the membership in the societies. 
+These scholars both have excellent claims to support their scholarship however after carefully examining these groups there remains no resolution to these issues despite the fact that thirty years has passed since Green’s book was published. Typically, historians view learned societies as the dominion of the elite and the gentleman scholar however these societies are representative of a pattern of engagement in civil society. Alexis Tocqueville observed that “Americans of all ages, of all conditions, of all minds, constantly unite…” in order to “create hospitals, prisons, schools…” and “bringing a truth to light or of developing a sentiment with the support of a good example, they associate.” The freedom to associate with like-minded people offered opportunities for citizens to create networks of interests that bound people together in a web of interrelated interests. These relationships served as a means to bind a new republic together and ironically, these connections led to greater awareness of other differences between citizens in the republic. Despite the abundance of sources, these relationships remain difficult to document due to the paucity of direct evidence linking people across different groups. Adding new computational methods into Clio’s toolbox may offer historians new insights using previously underutilized resources.
+
+<i>Sources and Methods</i>
+
+
+```{r}
+#Load tools
+library (sp)
+library (rgdal)
+library (rgeos)
+library (maptools)
+library (ggmap)
+library (ggplot2)
+library (mullenMisc)
+library (magrittr)
+library (stringr)
+library (dplyr)
+library (RColorBrewer)
+library (igraph)
+
+```
+
