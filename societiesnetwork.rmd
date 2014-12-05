@@ -123,6 +123,7 @@ Once the data is gathered and loaded it became clear that it may be useful to as
 
 
 ```{r}
+#Maps-Scholarly Societies Begin
 schol_soc <- read.csv("~/societiesnetwork/data/scholarlysocieties.csv")     
 schol_soc<- schol_soc%>%
 mutate(location=paste (City, State))
@@ -134,4 +135,38 @@ write.csv(schol_soc_geocoded, file = "schol-soc-geocoded.csv")
 ```
 
 
+In order to map the societies 
 
+```{r}
+#Get the Shape files read and make sure that they work using these commands.
+map_sp <- readOGR("nhgis-shp/", "state_1840")
+class(map_sp)
+str(map_sp, max.level = 2)
+map_sp@bbox
+map_sp@proj4string
+head(map_sp@data)
+plot(map_sp)
+
+map1840<- readOGR ("nhgis-shp" , "state_1840")
+fort2<- fortify (map1840)
+
+```
+
+
+
+
+#Needed steps to get 1830 and 1840 maps ready
+map_sp <- readOGR("nhgis-shp/", "state_1830")
+class(map_sp)
+str(map_sp, max.level = 2)
+map_sp@bbox
+map_sp@proj4string
+head(map_sp@data)
+plot(map_sp)
+
+
+map1830<- readOGR ("nhgis-shp" , "state_1830")
+map1840<- readOGR ("nhgis-shp" , "state_1840")
+
+fort<- fortify (map1830)
+fort2<- fortify (map1840)
