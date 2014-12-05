@@ -115,9 +115,35 @@ socdata %>%
 title("APS and AAAS Shared Membership Before 1812")
 ```
 
-These two socities were very important however they were not the only learned socities in the early American republic. In fact there seemed to be an increadible growth in these societies as documented by the earlier observation made by Alexis de Toqueville and in the <i> Scholarly Societies Project </i> at the University of Waterloo Library http://www.scholarly-societies.org/
+The proceeding membership charts provide useful information about these two specific organizations however they don’t provide a context about the growing number of societies and other knowledge institutions in the early republic. An additional resource to be exploited comes from the <i>Scholarly Societies Project</i>, an online directory of over 4,000 scholarly societies. By harvesting the data gathered by Jim Parrott and maintained by the University of Waterloo Library from 1994-2009, scholars can develop strategies to test analytical methods with a small and reliable data set. This is an important practice before adding more complexity to a historical programming project. Still there seemed to be an increadible growth in these societies as documented by the number of associations documented in the data and by observers at the time like earlier Alexis de Toqueville.
 
-This data is housed on multiple websites and is difficult to easily scrape but there is much useful data that can be manually entered in a csv file. Since this file has been uploaded with this project it will be easy to collaborate with colleagues to add new socities as they are rediscovered. For example the Agricultural Society of Albemarle was not included in the origninal data of early scholarly socities founded before 1849 in the United States. References to the site and members is found in several sources like in the papers of its first president, and President of the United States, James Madison. 
+```{r}
+early_learned <- read.csv("~/societiesnetwork/data/scholarlysocieties.csv")
+
+type <- ggplot(early_learned, aes (x=Society))
+type+ geom_histogram() + theme(axis.text.x = element_text(face = "bold", angle = 60, hjust = 1, size = 8)) +ggtitle("Learned Societies by Type") + ylab("Total Established") + xlab ("Type of Society")
+
+```
+
+
+Once the initial datafile is prepared it is helpful to identify some core data elements that may be helpful to use to visualize. In addition to the location there are other helpful elements to use like the Date.Established and the column that defines the type of society that is identified in the Society column. The Society column defines the purpose of the society based on the mission of the society. Agricultural and mechanical socities promoted education and learning that supported practicioners of those arts. The Letters grouping combines those identified as literature or historical in nature. Medical socities supported the growing medical profession. Specialized institutions included specialized scientific societies like the Academy of Natural Sciences or the Chemical Society of Philadelphia.Finally, Universal societies were modeled as institutions that were designed to be wide-ranging and encompass all aspects of knowledge like the APS and the AAAS.
+
+A simple graph of this outlines the growth in these specialized socities below.
+
+```{r}
+type <- ggplot(early_learned, aes (x=Society))
+type+ geom_histogram() + theme(axis.text.x = element_text(face = "bold", angle = 60, hjust = 1, size = 8)) +ggtitle("Learned Societies by Type") + ylab("Total Established") + xlab ("Type of Society")
+
+```
+
+This chart provides little context or nuance to the observer. Instead, if we include a graph that provides dates we get a much more useful tool.
+
+```{r}
+typedate <- ggplot(early_learned, aes (x=Date.Established, fill=Society))
+typedate+ geom_histogram(position= "stack", binwidth= 10) + theme(axis.text.x = element_text(face = "bold", angle = 60, hjust = 1, size = 8)) +ggtitle("Learned Societies by Date Established") + ylab("Total Established") + xlab ("Year Established")
+```
+
+This data is housed on multiple webpages and is difficult to easily scrape but there is much useful data that can be manually entered in a csv file. Since this file has been uploaded with this project it will be easy to collaborate with colleagues to add new socities as they are rediscovered. For example the Agricultural Society of Albemarle was not included in the origninal data of early scholarly socities founded before 1849 in the United States. References to the site and members is found in several sources like in the papers of its first president, and President of the United States, James Madison. 
 
 Once the data is gathered and loaded it became clear that it may be useful to assign geographic coordinates to the site. Google's api can be used to affix these codes however it requires city and state to be in the same column. Using dplyr we can add a column that pasted the data from the seperate City and State columns into a new column called location. Following that we can add this new column back to the original data frame and then run the Google api. Finally we can view the file and save it.
 
@@ -134,7 +160,8 @@ write.csv(schol_soc_geocoded, file = "schol-soc-geocoded.csv")
 
 ```
 
-Now that the datafile is prepared it is helpful to identify some core data elements that may be helpful to use to visualize. In addition to the location there are other helpful elements to use like the Date.Established and the simplified type of society that is identified in the Society column. The Society column defines the content purpose based on the mission of the society. Agricultural and mechanical socities promoted education and learning that supported practicioners of those arts. The Letters grouping combines those identified as literature or historical in nature. Medical socities supported the growing medical profession. Specialized institutions included specialized scientific societies like the Academy of Natural Sciences or the Chemical Society of Philadelphia.Finally, Universal societies were modeled as institutions that were designed to be wide-ranging and encompass all aspects of knowledge like the APS and the AAAS.
+Some scholars point out that the expansive distances in the United States encouraged the development of different learned societies. This has been suggested by historians that study the history of science and also many historians of higher education make those points as well. It might be helpful to map this data and also to begin to compare maps between the growth of colleges and those of learned societies, and museums and libraries.
+
 
 In order to map the societies it is useful to utilize existing shape files from the NHGIS and to prepare them for use.
 
