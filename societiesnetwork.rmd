@@ -33,3 +33,12 @@ library (igraph)
 
 ```
 
+```{r}
+#This is helpful showing the annual membership of the APS and the AAAS. It shows patterns of growth of the members.
+socdata = read.csv ("~/societiesnetwork/data/APSAAAScombined.csv")
+
+year <- ggplot(socdata, aes(x=Year.Elected, fill= Organization ))
+year + geom_histogram(position = "dodge", binwidth = 1) +
+ggtitle("Annual Elected Members of APS and AAAS") + ylab("Total Members Elected") + xlab("Year Elected")
+```
+
