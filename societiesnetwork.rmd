@@ -66,3 +66,26 @@ ggtitle("Annual Elected Members of APS and AAAS") + ylab("Total Members Elected"
 
 With this visualization it is easier to observe that both organizations seem to have similar ebbs and flows in their number of elected members. This may suggest that the growth of the societies may be interrelated.
 It is also possible that these groups are reacting to each other and adding members to demonstrate the superiority of their institution over the other. This visualization also provides some opportuities to ask new questions. For example, there is a clear decline in the elected membership of the AAAS from about 1815-1820 while there is an unusual increase in membership of the APS. A possible reason for this could be the decline of the Federalists following the Hartford Convention and their opposition to the War of 1812. There are other suggestions by scholars who point out that American science lagged behind that of the advances of the well-funded and mature institutions in Europe and as a result they suggest that the founders sought to create larger and diversified institutions. 
+
+
+Interestingly as mentioned earlier the APS divided their membership by residency status as early as 1768 that included international and resident. On the one hand, this indicated that the Philadelphia based society viewed themselves as the primary institution for scientific knowledge in the British colonies, while on the other; the inclusion of the international members provided the institution with additional membership with gravitas. These international members enhanced the credibility of the APS and the authority over the knowledge that it created and diffused across the fledgling nation. 
+
+Using the data in the APS membership file we can create a simple bar graph that shows the number of members by their membership status.
+
+ 
+```{r}
+dataaps <-read.csv("~/societiesnetwork/data/apsmembership.csv")
+a <- ggplot(dataaps, aes(x=Year.Elected))
+a + geom_histogram(binwidth = 1)+ xlab("Year Elected")+ggtitle ("Annual Total Elected Members APS")
+```
+analysis here
+
+```{r}
+#APS Resident and International Members
+a <- ggplot(dataaps, aes(Residency))
+a + geom_bar(width=.5, fill="blue", color="darkblue") + coord_flip()+ggtitle ("Total Elected Members APS by Residency 1768-1828")
+```
+
+The graph shows that approximately 40% of the membership between 1768 and 1828 were categorized as international members. In addition to other possible meanings a scholar may want to consider that the scientific community in this period was a cosmopolitan group that actively engaged each other in order to promote the diffusion of knowledge.
+
+Despite the fact that the AAAS elected foreign members it is interesting to note that they did not distinguish between this types of residency status. This is curious since the AAAS was founded near the end of the Revolutionary War while the APS practice dates from its founding prior to the outbreak of hostilities. 
