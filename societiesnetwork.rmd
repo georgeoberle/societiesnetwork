@@ -134,8 +134,9 @@ write.csv(schol_soc_geocoded, file = "schol-soc-geocoded.csv")
 
 ```
 
+Now that the datafile is prepared it is helpful to identify some core data elements that may be helpful to use to visualize. In addition to the location there are other helpful elements to use like the Date.Established and the simplified type of society that is identified in the Society column. The Society column defines the content purpose based on the mission of the society. Agricultural and mechanical socities promoted education and learning that supported practicioners of those arts. The Letters grouping combines those identified as literature or historical in nature. Medical socities supported the growing medical profession. Specialized institutions included specialized scientific societies like the Academy of Natural Sciences or the Chemical Society of Philadelphia.Finally, Universal societies were modeled as institutions that were designed to be wide-ranging and encompass all aspects of knowledge like the APS and the AAAS.
 
-In order to map the societies 
+In order to map the societies it is useful to utilize existing shape files from the NHGIS and to prepare them for use.
 
 ```{r}
 #Get the Shape files read and make sure that they work using these commands.
@@ -153,20 +154,8 @@ fort2<- fortify (map1840)
 ```
 
 
+```{r}
 
+ggplot () + geom_map(data=fort2, map=fort2, aes(x=long, y=lat, group=group, map_id=id), color="grey", fill="white") +geom_point(data=schol_soc_geocoded, size=3, aes (x=lon, y=lat, color=Society) ) + coord_map() +ggtitle('Early American Learned Societies by Type 1768-1848')
+```
 
-#Needed steps to get 1830 and 1840 maps ready
-map_sp <- readOGR("nhgis-shp/", "state_1830")
-class(map_sp)
-str(map_sp, max.level = 2)
-map_sp@bbox
-map_sp@proj4string
-head(map_sp@data)
-plot(map_sp)
-
-
-map1830<- readOGR ("nhgis-shp" , "state_1830")
-map1840<- readOGR ("nhgis-shp" , "state_1840")
-
-fort<- fortify (map1830)
-fort2<- fortify (map1840)
