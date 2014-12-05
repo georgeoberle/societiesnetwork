@@ -89,3 +89,16 @@ a + geom_bar(width=.5, fill="blue", color="darkblue") + coord_flip()+ggtitle ("T
 The graph shows that approximately 40% of the membership between 1768 and 1828 were categorized as international members. In addition to other possible meanings a scholar may want to consider that the scientific community in this period was a cosmopolitan group that actively engaged each other in order to promote the diffusion of knowledge.
 
 Despite the fact that the AAAS elected foreign members it is interesting to note that they did not distinguish between this types of residency status. This is curious since the AAAS was founded near the end of the Revolutionary War while the APS practice dates from its founding prior to the outbreak of hostilities. 
+
+Perhaps even more interesting is viewing the APS residency status by annual elections. This chart shows significant increases in the number of international members following the creation of the AAAS. It is unclear if this is directly connected to the establishment and growth of the AAAS however, it offers some new questions to look into and if it is significant then the scholar can invest the time to identify international members elected into the AAAS in order to compare these institutions.
+
+```{r}
+dataaps %>%
+  group_by(Year.Elected, Residency) %>%
+  summarize(n = n())  %>% 
+  ggplot(aes(x=Year.Elected, y= n, color = Residency )) +
+  geom_line() +
+ggtitle("Annual Elected Members of APS by Residency") + ylab("Total Members Elected") + xlab("Year Elected")
+```
+
+Another significant observation that scholars can make with with this line graph is that there is a significant decline of international members elected during times of international crises like during the War of 1812.
