@@ -161,6 +161,11 @@ write.csv(schol_soc_geocoded, file = "schol-soc-geocoded.csv")
 
 Some scholars point out that the expansive distances in the United States encouraged the development of different learned societies. This has been suggested by historians that study the history of science and also many historians of higher education make those points as well. It might be helpful to map this data and also to begin to compare maps between the growth of colleges and those of learned societies, and museums and libraries.
 
+```{r}
+
+
+```
+
 
 In order to map the societies it is useful to utilize existing shape files from the NHGIS and to prepare them for use.
 
@@ -183,5 +188,43 @@ fort2<- fortify (map1840)
 ```{r}
 
 ggplot () + geom_map(data=fort2, map=fort2, aes(x=long, y=lat, group=group, map_id=id), color="grey", fill="white") +geom_point(data=schol_soc_geocoded, size=3, aes (x=lon, y=lat, color=Society) ) + coord_map() +ggtitle('Early American Learned Societies by Type 1768-1848')
+```
+
+```{r}
+data = read.csv("~/societiesnetwork/data/learnedmembersnetwork.csv")
+
+data_h <- graph.data.frame(data, directed = FALSE)
+plot (data_h, vertex.label = NA)
+title("A Network Graph of the Societies Involved in the National University")
+
+V(data_h)
+bipartite.mapping(data_h)
+V(data_h)$type <- bipartite.mapping(data_h)$type
+is.bipartite(data_h)
+plot(data_h, layout = layout.bipartite, vertex.label = NA)
+title("A bipartite layout of National University Societies")
+
+bipartite_full <- bipartite.projection(data_h)
+str(bipartite_full)
+#Error in nchar(vn) : invalid multibyte string 69
+plot(bipartite$proj1, vertex.label = NA)
+title("Just the people in the Columbian College network")
+check with Lincoln. Not really working.
+
+plot(bipartite_full$proj2)
+title("The Columbian College Network")
+
+E(bipartite_full$proj2)
+E(bipartite_full$proj2)$weight
+
+plot(bipartite_full$proj2, edge.width = E(bipartite_full$proj2)$weight)
+title("Fraternal Organizations Weighted by Shared Membership")
+
+plot(bipartite_full$proj2, edge.width = E(bipartite_full$proj2)$weight,
+     layout = layout.fruchterman.reingold(bipartite_full$proj2, 
+      weights = E(bipartite_full$proj2)$weight),
+     vertex.label.dist = 1.5, vertex.size=5.5, vertex.color="red", edge.color="green")
+title("Columbian College Associations Weighted by Shared Membership")
+
 ```
 
