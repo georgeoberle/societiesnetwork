@@ -191,40 +191,60 @@ ggplot () + geom_map(data=fort2, map=fort2, aes(x=long, y=lat, group=group, map_
 ```
 
 
-data = read.csv("~/societiesnetwork/data/learnedmembersnetwork.csv")
+```{r}
+data = read.csv("~/societiesnetwork/data/learnmembabrev.csv")
+data_members <- graph.data.frame(data, directed = FALSE)
+plot (data_members, vertex.label = NA)
+title("A Network Graph of the Societies Involved in the Columbian College")
 
-data_h <- graph.data.frame(data, directed = FALSE)
-plot (data_h, vertex.label = NA)
-title("A Network Graph of the Societies Involved in the National University")
+```
 
-V(data_h)
-bipartite.mapping(data_h)
-V(data_h)$type <- bipartite.mapping(data_h)$type
-is.bipartite(data_h)
-plot(data_h, layout = layout.bipartite, vertex.label = NA)
-title("A bipartite layout of National University Societies")
 
-bipartite_full <- bipartite.projection(data_h)
-str(bipartite_full)
+```{r}
+V(data_members)
+bipartite.mapping(data_members)
+
+V(data_members)$type <- bipartite.mapping(data_members)$type
+is.bipartite(data_members)
+plot(data_members, layout = layout.bipartite, vertex.label = NA)
+title("A bipartite layout of Columbian College Societies")
+```
+
+```{r}
+#full_members <- bipartite.projection(data_members)
+#str(full_members)
 #Error in nchar(vn) : invalid multibyte string 69
-plot(bipartite$proj1, vertex.label = NA)
-title("Just the people in the Columbian College network")
-check with Lincoln. Not really working.
+#plot(bipartite$proj1, vertex.label = NA)
+#title("Just the people in the Columbian College network")
+#check with Lincoln. Not really working.
+```
 
-plot(bipartite_full$proj2)
-title("The Columbian College Network")
+```{r}
+#plot(full_members$proj2)
+#title("The Columbian College Network")
+```
 
-E(bipartite_full$proj2)
-E(bipartite_full$proj2)$weight
+```{r}
+#E(full_members$proj2)
+#E(full_members$proj2)$weight
+```
 
-plot(bipartite_full$proj2, edge.width = E(bipartite_full$proj2)$weight)
-title("Fraternal Organizations Weighted by Shared Membership")
+```{r}
+#plot(full_members$proj2, edge.width = E(full_members$proj2)$weight)
+#title("Fraternal Organizations Weighted by Shared Membership")
+```
 
-plot(bipartite_full$proj2, edge.width = E(bipartite_full$proj2)$weight,
-     layout = layout.fruchterman.reingold(bipartite_full$proj2, 
-      weights = E(bipartite_full$proj2)$weight),
-     vertex.label.dist = 1.5, vertex.size=5.5, vertex.color="red", edge.color="green")
-title("Columbian College Associations Weighted by Shared Membership")
+
+```{r}
+#plot(full_members$proj2, edge.width = E(full_members$proj2)$weight,
+#layout = layout.fruchterman.reingold(full_members$proj2, 
+       # weights = E(full_members$proj2)$weight),
+     #vertex.label.dist = 1.5)
+#title("Columbian College Associations Weighted by Shared Membership")
+
+```
+
+
 
 
 
