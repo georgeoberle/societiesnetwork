@@ -190,7 +190,7 @@ fort2<- fortify (map1840)
 ggplot () + geom_map(data=fort2, map=fort2, aes(x=long, y=lat, group=group, map_id=id), color="grey", fill="white") +geom_point(data=schol_soc_geocoded, size=3, aes (x=lon, y=lat, color=Society) ) + coord_map() +ggtitle('Early American Learned Societies by Type 1768-1848')
 ```
 
-```{r}
+
 data = read.csv("~/societiesnetwork/data/learnedmembersnetwork.csv")
 
 data_h <- graph.data.frame(data, directed = FALSE)
@@ -226,5 +226,5 @@ plot(bipartite_full$proj2, edge.width = E(bipartite_full$proj2)$weight,
      vertex.label.dist = 1.5, vertex.size=5.5, vertex.color="red", edge.color="green")
 title("Columbian College Associations Weighted by Shared Membership")
 
-```
+
 
