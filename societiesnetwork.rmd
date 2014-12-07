@@ -248,11 +248,11 @@ title("Fraternal Organizations Weighted by Shared Membership")
 
 
 ```{r}
-#plot(full_members$proj2, edge.width = E(full_members$proj2)$weight,
-#layout = layout.fruchterman.reingold(full_members$proj2, 
-       # weights = E(full_members$proj2)$weight),
-     #vertex.label.dist = 1.5)
-#title("Columbian College Associations Weighted by Shared Membership")
+set.seed(60)
+plot(full_members$proj2, edge.width = E(full_members$proj2)$weight,
+layout = layout.fruchterman.reingold(full_members$proj2, 
+       weights = E(full_members$proj2)$weight),edge.label.cex=1,vertex.shape="circle",edge.color="grey", vertex.size =5, vertex.color="lightblue", asp=0, margin=0,  vertex.label.dist = 1, vertex.label.cex = 1)
+title("Columbian College Associations Weighted by Shared Membership")
 
 ```
 
