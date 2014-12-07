@@ -202,9 +202,7 @@ data_members <- graph.data.frame(data, directed = FALSE)
 #plot (data_members)
 plot (data_members, vertex.label = NA)
 title("A Network Graph of the Societies Involved in the Columbian College")
-
 ```
-
 
 ```{r}
 V(data_members)
@@ -217,26 +215,35 @@ title("A bipartite layout of Columbian College Societies")
 
 ```{r}
 full_members <- bipartite.projection(data_members)
-str(full_members)
-plot(full_members$proj1)
-title("Just the people in the Columbian College network")
+#str(full_members)
+#plot(full_members$proj1)
+#title("Just the people in the Columbian College network")
 ```
 
 
+```{r}
+V(data_members)
+bipartite.mapping(data_members)
+V(data_members)$type <- bipartite.mapping(data_members)$type
+is.bipartite(data_members)
+plot(data_members, layout = layout.bipartite, vertex.label = NA)
+title("A bipartite layout of Columbian College Societies")
+```
+
 
 ```{r}
-#plot(full_members$proj2)
-#title("The Columbian College Network")
+plot(full_members$proj2)
+title("The Columbian College Network")
 ```
 
 ```{r}
-#E(full_members$proj2)
-#E(full_members$proj2)$weight
+E(full_members$proj2)
+E(full_members$proj2)$weight
 ```
 
 ```{r}
-#plot(full_members$proj2, edge.width = E(full_members$proj2)$weight)
-#title("Fraternal Organizations Weighted by Shared Membership")
+plot(full_members$proj2, edge.width = E(full_members$proj2)$weight)
+title("Fraternal Organizations Weighted by Shared Membership")
 ```
 
 
