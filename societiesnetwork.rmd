@@ -216,10 +216,10 @@ title("A bipartite layout of Columbian College Societies")
 ```
 
 ```{r}
-#full_members <- bipartite.projection(data_members)
-#str(full_members)
-#plot(full_members$proj1)
-#title("Just the people in the Columbian College network")
+full_members <- bipartite.projection(data_members)
+str(full_members)
+plot(full_members$proj1)
+title("Just the people in the Columbian College network")
 ```
 
 
