@@ -202,9 +202,9 @@ First, read the data the using the membership lists from societies that had know
 ```{r}
 data = read.csv("~/societiesnetwork/data/learnmembabrev.csv")
 data_members <- graph.data.frame(data, directed = FALSE)
-#plot (data_members)
-plot (data_members, vertex.label = NA)
-title("A Network Graph of the Societies Involved in the Columbian College")
+plot (data_members)
+#plot (data_members, vertex.label = NA)
+title("A Network Graph of Societies Supporting Founding a National University")
 ```
 <i>
 
