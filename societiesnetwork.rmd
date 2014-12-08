@@ -195,7 +195,11 @@ fort2<- fortify (map1840)
 ggplot () + geom_map(data=fort2, map=fort2, aes(x=long, y=lat, group=group, map_id=id), color="grey", fill="white") +geom_point(data=schol_soc_geocoded, size=3, aes (x=lon, y=lat, color=Society) ) + coord_map() +ggtitle('Early American Learned Societies by Type 1768-1848')
 ```
 
+<b><i>Scholarly Societies Connected with the Establishment of the Columbian College</i></b>
 
+In 1821, Congress passed, and President James Monroe authorized, the creation of the Columbian College. This institution, formed by Luther Rice, an active Baptist missionary and minister, would become the George Washington University. Many saw this insitution as the fulfillment of the many years of debates about the need for a national university. Still there were many that believed this institution was the antithesis of the vision of the founders and they resented that this institution was established by sectarian leaders for sectarian purposes. There was serious tensions from those that a national university should be focused on scientific education and secular. Using a network analysis map we may be able to detect if the founders of the college had shared memberships with other learned socities that supported the establishment of a national university. This is a pilot to see if this work can be useful to find connections and distinctions between larger groups a networks.
+
+First, read the data the using the membership lists from societies that had known connections to the national university.
 ```{r}
 data = read.csv("~/societiesnetwork/data/learnmembabrev.csv")
 data_members <- graph.data.frame(data, directed = FALSE)
@@ -203,6 +207,7 @@ data_members <- graph.data.frame(data, directed = FALSE)
 plot (data_members, vertex.label = NA)
 title("A Network Graph of the Societies Involved in the Columbian College")
 ```
+<i>
 
 ```{r}
 V(data_members)
