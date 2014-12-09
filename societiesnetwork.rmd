@@ -37,6 +37,19 @@ library (igraph)
 
 ```
 
+<h3>Load Data </h3>
+
+```{r}
+#Load data
+socdata = read.csv ("~/societiesnetwork/data/APSAAAScombined.csv")
+dataaps <-read.csv("~/societiesnetwork/data/apsmembership.csv")
+schol_soc <- read.csv("~/societiesnetwork/data/scholarlysocieties.csv")
+data = read.csv("~/societiesnetwork/data/learnmembabrev.csv")
+
+```
+
+
+
 It seemed appropriate to start evaluating membership rolls using the American Philosophical Society (APS) and the American Academy of Arts and Sciences (AAAS).  The APS, founded in Philadelphia, is the oldest learned society established in 1743 by Benjamin Franklin however the society experienced several setbacks. Beginning in 1768 there is a reliable list of elected members available by year at the APS website. The data available consists of five fields:
 Name:  	Thomas Bacon
  			Year Elected:  1768
@@ -47,6 +60,17 @@ Name:  	Thomas Bacon
 All of these fields are fairly self-explanatory however the residency field required exploration of the rules of the society of the time. An elected member could hold one of two statuses based on the time of election. A resident was a resident of area that became the United States while an International status was anyone that lived outside that region. Over time the membership rolls became more complex however for this study these are the core fields that are relevant. Since there was no digitized list of resources or any way to export the list a new spreadsheet needed to be created using the name, year elected, and residency. Scholars must make choices whether to include all the data available or only parts of it and then explain the choices. In this case the living status and the death date seemed irrelevant to the research questions being asked and would add extra time to prepare the data. Therefore it was not included. 
 	The American Academy of Arts and Sciences, founded in Boston, in 1780 by John Adams and other leaders in Massachusetts to promote the diffusion of knowledge. The online book of members is a pdf list of names, arranged by year of election and then alphabetically by last name. Following the name there is a series of dates that indicates the birth year and the death year of the corresponding individual.  There is a separate listing the names of members that are organized by the appropriate subject category for which the member was elected. These are not cross-listed with the main entry and there is no way to differentiate duplicate names in these listings since there is no birth/death dates. As a result this data was not gathered at this time however, it may be useful to add should a relevant project surface. In the end, the three common variables seemed to be name, organization and their common status as member. This became the foundation of developing a network analysis chart. 
 The creation of these lists in a spreadsheet takes significant time inputting the data. This process required a quality control check in place to assure that typos and other mistakes were minimized. Since they are both active institutions a cut off decision had to be made. Due to the nature of the original project the cut off date was 1828 since this was Andrew Jackson’s election and clearly outside of the scope of work that Kerber and Green introduced. Evaluating these membership lists was a difficult process without the aid of software due to the large set of names. For example, the American Philosophical Society from 1768-1828 elected 717 members. Likewise, the American Academy of Arts and Sciences, founded in 1780, boasted a membership through 1828 that numbered 432 members. It would be impossible for the scholar to memorize every name on the list and it would be daunting to try to manually calculate graphs that demonstrate statistical patterns or to draw a network graph that examined the overlap of these groups. Ultimately, this makes this sort of data a prime candidate for scholars to use R to help visualize the data gathered from membership rolls.
+
+<H3>Load Data <H/3>
+
+```{r}
+socdata = read.csv ("~/societiesnetwork/data/APSAAAScombined.csv")
+dataaps <-read.csv("~/societiesnetwork/data/apsmembership.csv")
+schol_soc <- read.csv("~/societiesnetwork/data/scholarlysocieties.csv")
+data = read.csv("~/societiesnetwork/data/learnmembabrev.csv")
+
+```
+
 
 ```{r}
 #This is helpful showing the annual membership of the APS and the AAAS. It shows patterns of growth of the members.
@@ -198,15 +222,43 @@ ggplot () + geom_map(data=fort2, map=fort2, aes(x=long, y=lat, group=group, map_
 
 In 1821, Congress passed, and President James Monroe authorized, the creation of the Columbian College. This institution, formed by Luther Rice, an active Baptist missionary and minister, would become the George Washington University. Many saw this insitution as the fulfillment of the many years of debates about the need for a national university. Still there were many that believed this institution was the antithesis of the vision of the founders and they resented that this institution was established by sectarian leaders for sectarian purposes. There was serious tensions from those that a national university should be focused on scientific education and secular. Using a network analysis map we may be able to detect if the founders of the college had shared memberships with other learned socities that supported the establishment of a national university. This is a pilot to see if this work can be useful to find connections and distinctions between larger groups a networks.
 
-First, read the data the using the membership lists from societies that had known connections to the national university.
+First, read the data the using a sample set of membership lists from societies that had known connections to the national university. The list has 2024 members lists coming from 8 organizations. 
+
+<u>Society Names</u>
+The MSPA Massachusetts Society for the Promotion of Agriculture
+Medical Society of the District of Columbia;
+Columbian Institute for the Promotion of Arts and Sciences
+Columbian Agricultural Society
+Baptist General Convention
+American Philosophical Society
+American Academy of Arts and Sciences
+
+The following graph show the distribution of the number members by organization.
+
 ```{r}
-data = read.csv("~/societiesnetwork/data/learnmembabrev.csv")
-data_members <- graph.data.frame(data, directed = FALSE)
-plot (data_members)
-#plot (data_members, vertex.label = NA)
-title("A Network Graph of Societies Supporting Founding a National University")
+
+b <- ggplot(data, aes(Organization))
+b + geom_bar(width=.5, fill="blue", color="darkblue") + coord_flip() +ggtitle ("Total Elected Members APS by Residency 1768-1828")+ggtitle ("Total Members of Societies Connected to National University 1768-1828")
+
 ```
 
+
+
+
+```{r}
+data = read.csv("~/societiesnetwork/data/learnmembabrev.csv")
+
+data_members <- graph.data.frame(data, directed = FALSE)
+plot (data_members, vertex.label = NA)
+title("Network Graph of Members of Societies Supporting Founding a National University")
+```
+
+Notice this graph does not have labels so it does not seem to be very helpful. It is interesting to observe that some vertices seem to stand off on their own. This indicates that they have multiple relationships with groups. Those that have similar relationships like a shared membership between the AAAS and MMS do not stand out very much. However there is one member that seems to stand out distinctly due to his membership.  This plot produces a groups of members that are clumpred together and are difficult to read because the names are on top of each other. The one name visible is of William Staughton offering a name for the scholar to explore further.
+
+```{r}
+plot (data_members)
+title("A Network Graph of Societies Supporting Founding a National University")
+```
 
 
 ```{r}
