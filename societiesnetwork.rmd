@@ -7,8 +7,8 @@ output: html_document
 <h2>
 <b><i>Introduction</i></b></h2>
 
-This project is meant to be a proptype to determine if using visualizations can be useful for furthering the study of knowledge institutions in the early republic. There are several sources that have proved to be difficult to manage using traditional methods however they would be essential to answering key research questions.
-Learned societies have offered excellent sources for scholars to study the development of science and political culture. There is nothing new about studying them. Typically when scholars turn their attention to learned societies and other groups their focus naturally turns to the leadership of those associations and the work they conducted. This focus is natural since they offer the prevalence of evidence for scholars to evaluate. These sources do an excellent job describing the work of the institution and particular aspects of the interests of members. These works also suggest that scientific discourse, and the creation and dissemination of knowledge itself, is fixated in a tradition that is fundamentally a political endeavor and thus became politicized. This is exemplified by Linda Kerber’s comparison of the published papers of the American Academy of Arts and Sciences (AAAS) and the American Philosophical Society (APS) that asserted the AAAS stressed mathematical and astronomical studies while the APS focused on descriptive sciences of botany, geology and the like. Other scholars have suggested that scientific societies had much in common and that the differences between the two groups owed much more to the interests in their life and the accidents of death of the membership in the societies. 
+This project is meant to be a protoptype to determine if using visualizations can be useful for furthering the study of knowledge institutions in the early republic. There are several sources that have proved to be difficult to manage using traditional methods however they would be essential to answering key research questions.
+Learned societies have offered excellent sources for scholars to study the development of science and political culture. There is nothing new about studying them. Typically, when scholars turn their attention to learned societies and other groups their focus naturally turns to the leadership of those associations and the work they conducted. This focus is natural since they offer the prevalence of evidence for scholars to evaluate. These sources do an excellent job describing the work of the institution and particular aspects of the interests of members. These works also suggest that scientific discourse, and the creation and dissemination of knowledge itself, is fixated in a tradition that is fundamentally a political endeavor and thus became politicized. This is exemplified by Linda Kerber’s comparison of the published papers of the American Academy of Arts and Sciences (AAAS) and the American Philosophical Society (APS) that asserted the AAAS stressed mathematical and astronomical studies while the APS focused on descriptive sciences of botany, geology and the like. Other scholars have suggested that scientific societies had much in common and that the differences between the two groups owed much more to the interests in their life and the accidents of death of the membership in the societies. 
 
 These scholars both have excellent claims to support their scholarship however after carefully examining these groups there remains no resolution to these issues despite the fact that thirty years has passed since Green’s book was published. Typically, historians view learned societies as the dominion of the elite and the gentleman scholar however these societies are representative of a pattern of engagement in civil society. Alexis Tocqueville observed that “Americans of all ages, of all conditions, of all minds, constantly unite…” in order to “create hospitals, prisons, schools…” and “bringing a truth to light or of developing a sentiment with the support of a good example, they associate.” The freedom to associate with like-minded people offered opportunities for citizens to create networks of interests that bound people together in a web of interrelated interests. These relationships served as a means to bind a new republic together and ironically, these connections led to greater awareness of other differences between citizens in the republic. Despite the abundance of sources, these relationships remain difficult to document due to the paucity of direct evidence linking people across different groups. Adding new computational methods into Clio’s toolbox may offer historians new insights using previously underutilized resources.
 
@@ -40,8 +40,8 @@ Name:  	Thomas Bacon
  			Living? :  	Deceased
  			Death Date:  	5/24/1768
 
-All of these fields are fairly self-explanatory however the residency field required exploration of the rules of the society of the time. An elected member could hold one of two statuses based on the time of election. A resident was a resident of area that became the United States while an International status was anyone that lived outside that region. Over time the membership rolls became more complex however for this study these are the core fields that are relevant. Since there was no digitized list of resources or any way to export the list a new spreadsheet needed to be created using the name, year elected, and residency. Scholars must make choices whether to include all the data available or only parts of it and then explain the choices. In this case the living status and the death date seemed irrelevant to the research questions being asked and would add extra time to prepare the data. Therefore it was not included. 
-	The American Academy of Arts and Sciences, founded in Boston, in 1780 by John Adams and other leaders in Massachusetts to promote the diffusion of knowledge. The online book of members is a pdf list of names, arranged by year of election and then alphabetically by last name. Following the name there is a series of dates that indicates the birth year and the death year of the corresponding individual.  There is a separate listing the names of members that are organized by the appropriate subject category for which the member was elected. These are not cross-listed with the main entry and there is no way to differentiate duplicate names in these listings since there is no birth/death dates. As a result this data was not gathered at this time however, it may be useful to add should a relevant project surface. In the end, the three common variables seemed to be name, organization and their common status as member. This became the foundation of developing a network analysis chart. 
+All of these fields are fairly self-explanatory however the residency field required exploration of the rules of the society of the time. An elected member could hold one of two statuses based on the time of election. A resident was a resident of area that became the United States while an International status was anyone that lived outside that region. Over time the membership rolls became more complex however for this study these are the core fields that are relevant. Since there was no digitized list of resources or any way to export the list a new spreadsheet needed to be created using the name, year elected, and residency. Scholars must make choices whether to include all the data available or only parts of it and then explain the choices. In this case the living status and the death date seemed irrelevant to the research questions being asked and would add extra time to prepare the data. Therefore, it was not included. 
+	The American Academy of Arts and Sciences, founded in Boston, in 1780 by John Adams and other leaders in Massachusetts to promote the diffusion of knowledge. The online book of members is a .pdf list of names, arranged by year of election and then alphabetically by last name. Following the name there is a series of dates that indicates the birth year and the death year of the corresponding individual.  There is a separate listing the names of members that are organized by the appropriate subject category for which the member was elected. These are not cross-listed with the main entry and there is no way to differentiate duplicate names in these listings since there is no birth/death dates. As a result, this data was not gathered at this time however, it may be useful to add should a relevant project surface. In the end, the three common variables seemed to be name, organization and their common status as member. This became the foundation of developing a network analysis chart. 
 The creation of these lists in a spreadsheet takes significant time inputting the data. This process required a quality control check in place to assure that typos and other mistakes were minimized. Since they are both active institutions a cut off decision had to be made. Due to the nature of the original project the cut off date was 1828 since this was Andrew Jackson’s election and clearly outside of the scope of work that Kerber and Green introduced. Evaluating these membership lists was a difficult process without the aid of software due to the large set of names. For example, the American Philosophical Society from 1768-1828 elected 717 members. Likewise, the American Academy of Arts and Sciences, founded in 1780, boasted a membership through 1828 that numbered 432 members. It would be impossible for the scholar to memorize every name on the list and it would be daunting to try to manually calculate graphs that demonstrate statistical patterns or to draw a network graph that examined the overlap of these groups. Ultimately, this makes this sort of data a prime candidate for scholars to use R to help visualize the data gathered from membership rolls.
 
 <h3> APS and AAAS Growth </h3>
@@ -54,7 +54,13 @@ year + geom_histogram(position = "dodge", binwidth = 1) +
 ggtitle("Annual Elected Members of APS and AAAS") + ylab("Total Members Elected") + xlab("Year Elected")
 ```
 
-This bargraph is a good start to begin an analysis of the annual election patterns of these associations. Upon graphing the annual election data of these two organizations we can see that the AAAS had a few very high spikes in their membership rolls. It is evident upon careful observation of the graph that in the 48 years between the creation of the AAAS and 1828 there were only eight years that they elected more members to their organization then the APS. One was the year of the AAAS founding. Still this graph is difficult to use since there are so many years and because each year requires a bar for the APS and the AAAS. Instead, plotting a line graph may offer a better way to visualize this data.
+The graph shows that approximately 40% of the membership between 1768 and 1828 were categorized as international members. In addition to other possible meanings a scholar may want to consider that the scientific community in this period was a cosmopolitan group that actively engaged each other in order to promote the diffusion of knowledge.
+
+Despite the fact that the AAAS elected foreign members it is interesting to note that they did not distinguish between this types of residency status. This is curious since the AAAS was founded near the end of the Revolutionary War while the APS practice dates from its founding prior to the outbreak of hostilities.
+
+Perhaps even more interesting is viewing the APS residency status by annual elections. This chart shows significant increases in the number of international members following the creation of the AAAS. It is unclear if this is directly connected to the establishment and growth of the AAAS however, it offers some new questions to look into and if it is significant then the scholar can invest the time to identify international members elected into the AAAS in order to compare these institutions. This could be useful to explore several questions including were foreign members added to help bolster the authority of the institution.
+
+
 
 ```{r}
 socdata %>%
@@ -65,11 +71,11 @@ socdata %>%
 ggtitle("Annual Elected Members of APS and AAAS") + ylab("Total Members Elected") + xlab("Year Elected")
 ```
 
-With this visualization it is easier to observe that both organizations seem to have similar ebbs and flows in their number of elected members. This may suggest that the growth of the societies may be interrelated.
+With this visualization, it is easier to observe that both organizations seem to have similar ebbs and flows in their number of elected members. This may suggest that the growth of the societies may be interrelated.
 It is also possible that these groups are reacting to each other and adding members to demonstrate the superiority of their institution over the other. This visualization also provides some opportuities to ask new questions. For example, there is a clear decline in the elected membership of the AAAS from about 1815-1820 while there is an unusual increase in membership of the APS. A possible reason for this could be the decline of the Federalists following the Hartford Convention and their opposition to the War of 1812. There are other suggestions by scholars who point out that American science lagged behind that of the advances of the well-funded and mature institutions in Europe and as a result they suggest that the founders sought to create larger and diversified institutions. 
 
 
-Interestingly as mentioned earlier the APS divided their membership by residency status as early as 1768 that included international and resident. On the one hand, this indicated that the Philadelphia based society viewed themselves as the primary institution for scientific knowledge in the British colonies, while on the other; the inclusion of the international members provided the institution with additional membership with gravitas. These international members enhanced the credibility of the APS and the authority over the knowledge that it created and diffused across the fledgling nation. 
+Interestingly, as mentioned earlier, the APS divided their membership by residency status as early as 1768 that included international and resident. On the one hand, this indicated that the Philadelphia based society viewed themselves as the primary institution for scientific knowledge in the British colonies, while on the other; the inclusion of the international members provided the institution with additional membership with gravitas. These international members enhanced the credibility of the APS and the authority over the knowledge that it created and diffused across the fledgling nation. 
 
 Using the data in the APS membership file we can create a simple bar graph that shows the number of members by their membership status.
 
@@ -79,7 +85,7 @@ dataaps <-read.csv("~/societiesnetwork/data/apsmembership.csv")
 a <- ggplot(dataaps, aes(x=Year.Elected))
 a + geom_histogram(binwidth = 1)+ xlab("Year Elected")+ggtitle ("Annual Total Elected Members APS")
 ```
-This bargraph show tha annual elected membership of the APS from 1768-1820. There are a few years, especially during the American Revolution, when there were no elected members. It is particularly illustrative of the British threat to and their occupation of Philadelphia. After their evacuation in 1778 it appears the instituion began to elect members again.
+This bar graph show that annual elected membership of the APS from 1768-1820. There are a few years, especially during the American Revolution, when there were no elected members. It is particularly illustrative of the British threat to and their occupation of Philadelphia. After their evacuation in 1778 it appears the instituion began to elect members again.
 
 
 <h3>Resident and International Members</h3>
@@ -93,7 +99,7 @@ The graph shows that approximately 40% of the membership between 1768 and 1828 w
 
 Despite the fact that the AAAS elected foreign members it is interesting to note that they did not distinguish between this types of residency status. This is curious since the AAAS was founded near the end of the Revolutionary War while the APS practice dates from its founding prior to the outbreak of hostilities. 
 
-Perhaps even more interesting is viewing the APS residency status by annual elections. This chart shows significant increases in the number of international members following the creation of the AAAS. It is unclear if this is directly connected to the establishment and growth of the AAAS however, it offers some new questions to look into and if it is significant then the scholar can invest the time to identify international members elected into the AAAS in order to compare these institutions.
+Perhaps even more interesting is viewing the APS residency status by annual elections. This chart shows significant increases in the number of international members following the creation of the AAAS. It is unclear if this is directly connected to the establishment and growth of the AAAS however, it offers some new questions to look into and if it is significant then the scholar can invest the time to identify international members elected into the AAAS in order to compare these institutions. This could be useful to explore several questions including were foreign members added to help bolster the authority of the institution.
 
 ```{r}
 dataaps %>%
@@ -105,8 +111,6 @@ ggtitle("Annual Elected Members of APS by Residency") + ylab("Total Members Elec
 ```
 
 Another significant observation that scholars can make with with this line graph is that there is a significant decline of international members elected during times of international crises like during the War of 1812.
-
-
 
 These charts are very good at showing snapshots about specific institutions or even some general characteristics shared between institutions however they do not demonstrate if members belonged to both groups. It may also be useful to explore these shared relationships limiting to specific time frames. 
 
@@ -126,19 +130,19 @@ If we want to view if there were common members elected by year this would be an
 socdata %>%
   filter(Year.Elected ==1781) %>%
   graph.data.frame(directed = FALSE) %>%
-  plot(vertex.label = NA)
+  plot(vertex.label = NA )
 title("APS and AAAS Shared Membership 1781")
 ```
 
 
 <h3>Scholarly Societies in the Early Republic</h3>
-The proceeding membership charts provide useful information about these two specific organizations however; they don’t provide a context about the growing number of societies and other knowledge institutions in the early republic. An additional resource to be exploited comes from the <i>Scholarly Societies Project</i>, an online directory of over 4,000 scholarly societies. By harvesting the data gathered by Jim Parrott and maintained by the University of Waterloo Library from 1994-2009, scholars can develop strategies to test analytical methods with a small and reliable data set. This is an important practice before adding more complexity to a historical programming project. Still there seemed to be an increadible growth in these societies as documented by the number of associations documented in the data and by observers at the time like earlier Alexis de Toqueville.
+The proceeding membership charts provide useful information about these two specific organizations however; they don’t provide a context about the growing number of societies and other knowledge institutions in the early republic. An additional resource to be exploited comes from the <b><i>Scholarly Societies Project</i></b>, an online directory of over 4,000 scholarly societies. By harvesting the data gathered by Jim Parrott and maintained by the University of Waterloo Library from 1994-2009, scholars can develop strategies to test analytical methods with a small and reliable data set. This is an important practice before adding more complexity to a historical programming project. Still there seemed to be an increadible growth in these societies as documented by the number of associations documented in the data and by observers at the time like earlier Alexis de Toqueville.
 
 Despite the fact that this is an excellent source there are a few challenges. First, the data is housed on multiple webpages and is structured differently on the different pages therefore it is difficult to scrape. Instead, it can be entered manually in a csv file. Second, despite the breadth of the project there are gaps. For example the Agricultural Society of Albemarle was not included in the origninal data of early scholarly socities founded before 1849 in the United States. References to the site and members is found in several sources like in the papers of its first president, and President of the United States, James Madison. I have added this and a few others and I hope that colleagues will work together to add more over time. Therefore the file will be available for edit via github.
 
-Once the initial datafile is prepared it is helpful to identify some core data elements that may be helpful to use to visualize. In addition to the location there are other helpful elements to use like the Date.Established and the column that defines the type of society that is identified in the Society column. The Society column defines the purpose of the society based on the mission of the society. Agricultural and mechanical socities promoted education and learning that supported practicioners of those arts. The Letters grouping combines those identified as literature or historical in nature. Medical socities supported the growing medical profession. Specialized institutions included specialized scientific societies like the Academy of Natural Sciences or the Chemical Society of Philadelphia.Finally, Universal societies were modeled as institutions that were designed to be wide-ranging and encompass all aspects of knowledge like the APS and the AAAS.
+Once the initial datafile is prepared it is helpful to identify some core data elements that may be helpful to use to visualize. In addition to the location there are other helpful elements to use. For example, the Date.Established and the column that defines the type of society, identified in the Society column can be used to produce an interesting graph. The Society column defines the purpose of the society based on the mission of the society. Agricultural and mechanical societies promoted education and learning that supported practicioners of those arts. The Letters grouping combines those identified as literature or historical in nature. Medical socities supported the growing medical profession. Specialized institutions included specialized scientific societies like the Academy of Natural Sciences or the Chemical Society of Philadelphia.Finally, universal societies were modeled as institutions that were designed to be wide-ranging and encompass all aspects of knowledge like the APS and the AAAS.
 
-A simple graph of this outlines the growth in these specialized socities below.
+A simple graph of this outlines the growth in these specialized societies below.
 ```{r}
 early_learned <- read.csv("~/societiesnetwork/data/scholarlysocieties.csv")
 
@@ -152,9 +156,7 @@ This chart provides little context or nuance to the observer. Instead, if we inc
 typedate <- ggplot(early_learned, aes (x=Date.Established, fill=Society))
 typedate+ geom_histogram(position= "stack", binwidth= 10) + theme(axis.text.x = element_text(face = "bold", angle = 60, hjust = 1, size = 8)) +ggtitle("Learned Societies by Date Established") + ylab("Total Established") + xlab ("Year Established")
 ```
-
 This graphic clearly shows a pattern of growth occuring away from universal knowledge organizations and toward the espeablishment of specialized institutions. This may be due to the development of protoprofessional organizations or it may indicate that with democracy there is also a fragmentation of knowledge.
-
 
 Once the data is gathered and loaded it became clear that it may be useful to assign geographic coordinates to the site. Google's api can be used to affix these codes however it requires city and state to be in the same column. Using dplyr we can add a column that pasted the data from the seperate City and State columns into a new column called location. Following that we can add this new column back to the original data frame and then run the Google api. Finally we can view the file and save it.
 
@@ -169,7 +171,6 @@ schol_soc_geocoded
 write.csv(schol_soc_geocoded, file = "schol-soc-geocoded.csv")
 
 ```
-
 Some scholars point out that the expansive distances in the United States encouraged the development of different learned societies. This has been suggested by historians that study the history of science and also many historians of higher education make those points as well. It might be helpful to map this data and also to begin to compare maps between the growth of colleges and those of learned societies, and museums and libraries.
 
 In order to map the societies it is useful to utilize existing shape files from the NHGIS and to prepare them for use.
@@ -188,18 +189,15 @@ map1840<- readOGR ("nhgis-shp" , "state_1840")
 fort2<- fortify (map1840)
 
 ```
-
-After preparing the map files and fortifying the shape files we can use the data schol_soc_geocoded that we prepared earlier and then apply that to the 1840 map file that we just prepared. Using the type of society from the Society column we can graph where the types of socities were located between 1768-1849.
+After preparing the map files and fortifying the shape files we can use the data schol_soc_geocoded that we prepared earlier and then apply that to the 1840 map file that we just prepared. Using the type of society from the Society column we can graph where the types of societies were located between 1768-1849.
 
 ```{r}
 
 ggplot () + geom_map(data=fort2, map=fort2, aes(x=long, y=lat, group=group, map_id=id), color="grey", fill="white") +geom_point(data=schol_soc_geocoded, size=3, aes (x=lon, y=lat, color=Society) ) + coord_map() +ggtitle('Early American Learned Societies by Type 1768-1848')
 ```
-
-
 <h3>Scholarly Societies Connected with the Establishment of the Columbian College</h3>
 
-In 1821, Congress passed, and President James Monroe authorized, the creation of the Columbian College. This institution, formed by Luther Rice, an active Baptist missionary and minister, would become the George Washington University. Many saw this insitution as the fulfillment of the many years of debates about the need for a national university. Still there were many that believed this institution was the antithesis of the vision of the founders and they resented that this institution was established by sectarian leaders for sectarian purposes. There was serious tensions from those that a national university should be focused on scientific education and secular. Using a network analysis map we may be able to detect if the founders of the college had shared memberships with other learned socities that supported the establishment of a national university. This is a pilot to see if this work can be useful to find connections and distinctions between larger groups a networks.
+In 1821, Congress passed, and President James Monroe authorized, the creation of the Columbian College. This institution, formed by Luther Rice, an active Baptist missionary and minister, would become the George Washington University. Many saw this insitution as the fulfillment of the many years of debates about the need for a national university. Still there were many that believed this institution was the antithesis of the vision of the founders and they resented that this institution was established by sectarian leaders for sectarian purposes. There was serious tensions from those that a national university should be focused on scientific education and secular. Using a network analysis map we may be able to detect if the founders of the college had shared memberships with other learned societies that supported the establishment of a national university. This is a pilot to see if this work can be useful to find connections and distinctions between larger groups a networks.
 
 The network data consists of 2024 observations and 3 variables. The variables include name, organization and status. The status of all of the observations is member.
 
@@ -208,10 +206,9 @@ data = read.csv("~/societiesnetwork/data/learnmembabrev.csv")
 
 ```
 
-
 After reading the data this sample set of membership lists from societies that had known connections to the national university. The list has 2024 members lists coming from 8 organizations. 
 
-<ul>Society Names
+<b><ul>Society Names</b>
 <li> MSPA Massachusetts Society for the Promotion of Agriculture;</li>
 <li> Medical Society of the District of Columbia;</li>
 <li> Massachusetts Medical Society;</li>
@@ -221,8 +218,7 @@ After reading the data this sample set of membership lists from societies that h
 <li> American Philosophical Society;</li>
 <li> American Academy of Arts and Sciences;</li> </ul>
 
-The following graph show the distribution of the number members by organization.
-
+The following graph shows the distribution of the number members by organization.
 ```{r}
 
 b <- ggplot(data, aes(Organization))
@@ -231,15 +227,12 @@ b + geom_bar(width=.5, fill="blue", color="darkblue") + coord_flip() +ggtitle ("
 ```
 This graph gives useful information about the relative sizeof the various groups. A surprising find from this is that the Massachusetts Medical Society ad a larger set of members than the American Academy of Arts and Sciences by 1828.These charts cannot provide us with any new information regarding the shared relationships. To do this scholars like Kieran Healey have turned to network analysis. see-http://kieranhealy.org/blog/archives/2013/06/18/a-co-citation-network-for-philosophy/
 
-
-
 ```{r}
 
 data_members <- graph.data.frame(data, directed = FALSE)
 plot (data_members, vertex.label = NA)
 title("Suporters of Founding a National Univesity", sub = "A network graph of members",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
 ```
-
 Notice this graph does not have labels so it does not seem to be very helpful. It is interesting to observe that some vertices seem to stand off on their own. This indicates that they have multiple relationships with groups. Those that have similar relationships like a shared membership between the AAAS and MMS do not stand out very much. However there is one member that seems to stand out distinctly due to his membership.  If we add labels we may get other clues to who or what is linked yet set off on their own.
 
 ```{r}
@@ -247,7 +240,6 @@ data_members <- graph.data.frame(data, directed = FALSE)
 plot (data_members)
 title("Suporters of Founding a National Univesity", sub = "A network graph of members with name labels",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 0.75, font.sub = 3, col.sub = "red")
 ```
-
 This plot produces a groups of members that are clumpred together and are difficult to read because the names are on top of each other. There are a few visible names that show up depending on how the graph is drawn however the one name that always is visible is of William Staughton. These names offer leads to follow. What places these people apart from the nested sets of illegible names?
 
 Creating a bipartite layout and display of relationships may help with developing a more effective display of how these people relate to each other. Currently, the members and the organizations are all vertices. Generally it is better to only have like things in a network graph however, a bipartite graph will divide the two distinctive sets of vertices and assure that they only appear on one part or another. In this case the name vertex is connected to the organization vertex by the edge which is the member status. This can be done using this set of code:
@@ -263,7 +255,9 @@ title("Suporters of Founding a National Univesity", sub = "A bipartite layout of
 Visually this is not very helpful except that the vertexes are now grouped properly. The top group has all of the names of the people while the bottom vertices are the organizations. They are all linked by the grey lines. Although this helpful to explain the process we are no closer to understanding the historical questions at hand. 
 
 After creating another function called 
+
 full_members
+
 we can run our bipartite projection function and use the data_members
 
 ```{r}
@@ -276,13 +270,13 @@ We may want to use this to run the second projection our our bipartite graph. Th
 plot(full_members$proj2)
 title("Suporters of Founding a National Univesity", sub = "Just the Organizations",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
 ```
-This is better. It shows the Columbian Agricultural Society alone and unconnected to any of the other institutions. It also shows that the Baptist General Convention, responsibile for founding the Columbian College in D.C., is further away from the other organizations but still connected. In fact, it is connected to The American Philosophical Society, the Columbian Institute for the Promotion of Arts and Sciences, and to the Massachusetts Medical Society. Still, we don't know if these links are significant. The way we can find this out is to assign a function that project weights to the edges that link these vertices together. 
+This is better. It shows the <i>Columbian Agricultural Society</i> alone and unconnected to any of the other institutions. It also shows that the <i>Baptist General Convention</i>, responsibile for founding the Columbian College in D.C., is further away from the other organizations but still connected. In fact, it is connected to The <i>American Philosophical Society</i>, the <i>Columbian Institute for the Promotion of Arts and Sciences</i>, and to the <i>Massachusetts Medical Society</i>. Still, we don't know if these links are significant. The way we can find this out is to assign a function that project weights to the edges that link these vertices together. 
 This is done here:
 ```{r}
 E(full_members$proj2)
 E(full_members$proj2)$weight
 ```
-When we run that command we can see how many shared members exist between the vertices. This data is displayed in the console. The Baptists General Convention shared members with those three organizations is 1. Therefore there is one person that is creating the connection. Still, it is useful to graph it.
+When we run that command we can see how many shared members exist between the vertices. This data is displayed in the console. The Baptist General Convention shared members with those three organizations is 1. Therefore there is one person that is creating the connection. Still, it is useful to graph it.
 ```{r}
 plot(full_members$proj2, edge.width = E(full_members$proj2)$weight)
 title("Suporters of Founding a National Univesity", sub = "Weighted by Shared Members",cex.main = 2,   font.main= 4, col.main= "blue", cex.sub = 2, font.sub = 3, col.sub = "red")
@@ -297,4 +291,31 @@ title("Suporters of Founding a National Univesity", sub = "Weighted by Shared Me
 
 This chart is much more effective. It demonstrates clear conntections between the APS and the AAAS. This has always been suggested by scholars but is confirmed through this process. Also there is an interesting and important connection that exists between the AAAS and the MMS that deserves significant attention. Most works that focus on the history of science in New England have focused on their attention to astronomy and mathmatics. The relationship to the burgeoning medical profession may offer significant connections to natural history and chemistry since doctors are often interested in pharmacology which is reliant on these studies. Also the regional questions of how associations develop is an interesting issue to explore further. As we can see the CIPAS is connected to both the Philadelphia based APS the Massachusetts based AAAS and the MSDC. What is clear is that the Baptist General Convention group had very thin connections with the scientific institutions suggesting that this group sought had little shared interests with the others. It will be interesting to explore this further by adding more organizations and more members names.
 
+<h2> Conclusion</h2>
 In the end, this project does not provide definitive answers to any questions however it is successful in demonstrating that visualization strategies can be useful for providing refined questions for further research. It also offers significant opportunities for scholars to find a new use for old sources. These sources have been sitting on shelves, in boxes, or sometimes are available online however they have been unusable due to the limited ability of people to draw the thousands of connections between the hundreds of organizations. As a result, scholars may be able to provide more nuance to their answers therefore enhancing our story of the past.
+
+<h2>References</h2>
+<b>Selected Books and Articles</b>
+
+Castel, Albert. “The Founding Fathers and the Vision of a National University.” History of Education Quarterly 4, no. 4 (Winter 1964): 280–302.
+
+Columbia, Medical Society of the District of. History of the Medical Society of the District of Columbia: 1817-1909. The Society, 1909. https://ia600308.us.archive.org/14/items/historyofmedical00medi/historyofmedical00medi.pdf.
+
+Green, Constance McLaughlin. Washington: Village and Capital, 1800-1878. Vol. 1. 2 vols. Princeton, N.J: Princeton University Press, 1962.
+
+Greene, John C. American Science in the Age of Jefferson. Ames: Iowa State University Press, 1984.
+
+Howe, Daniel Walker. What Hath God Wrought: The Transformation of America, 1815-1848. 
+Oxford History of the United States.New York: Oxford University Press, 2007.
+
+Kerber, Linda K. Federalists in Dissent; Imagery and Ideology in Jeffersonian America. Ithaca [N.Y.]: Cornell University Press, 1970.
+
+Mullen, Lincoln. “Network Analysis in History” In Digital History Methods in R. http://dh-r.lincolnmullen.com/networks.html. Accessed December 9, 2014.
+
+
+<b>Selected Data Sources</b>
+
+American Academy of Arts and Sciences https://www.amacad.org/content/members/members.aspx
+American Philosophical Society http://www.amphilsoc.org/memhist/search?browse-all=yes;sort=creator
+Scholarly Societies Project http://www.scholarly-societies.org/
+
